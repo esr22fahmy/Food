@@ -1,0 +1,37 @@
+/*************** Start Global Style ***************/
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+* {
+  font-family: 'Markazi Text', serif;
+}
+
+a{
+  text-decoration: none !important;
+}
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-content-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn{
+  border: 0 !important;
+}
+::selection{
+  background-color: #6d557c;
+  color: #fff;
+}
+
+
+/*************** End Global Style ***************/
