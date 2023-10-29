@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Food/static/css/main.70848419.css",
+    "main.js": "/Food/static/js/main.bf5b66f8.js",
+    "static/media/fa-solid-900.ttf": "/Food/static/media/fa-solid-900.d75e3fd1eb12e9bd6655.ttf",
+    "static/media/home.jpg": "/Food/static/media/home.652ab3d13c7b6600cd23.jpg",
+    "static/media/fa-brands-400.ttf": "/Food/static/media/fa-brands-400.016b4a6cdced82ab3aa1.ttf",
+    "static/media/bootstrap-icons.woff?": "/Food/static/media/bootstrap-icons.449ad8adf6ae0424b7ed.woff",
+    "static/media/fa-solid-900.woff2": "/Food/static/media/fa-solid-900.b6879d41b0852f01ed5b.woff2",
+    "static/media/bootstrap-icons.woff2?": "/Food/static/media/bootstrap-icons.dea24bf5a7646d8b84e7.woff2",
+    "static/media/fa-brands-400.woff2": "/Food/static/media/fa-brands-400.878f31251d960bd6266f.woff2",
+    "static/media/fa-regular-400.ttf": "/Food/static/media/fa-regular-400.50701fbb8177c2dde530.ttf",
+    "static/media/hero-img.jpg": "/Food/static/media/hero-img.43abf3866e2392f770ee.jpg",
+    "static/media/fa-regular-400.woff2": "/Food/static/media/fa-regular-400.b041b1fa4fe241b23445.woff2",
+    "static/media/fa-v4compatibility.ttf": "/Food/static/media/fa-v4compatibility.c6a0c95b0a95c4553700.ttf",
+    "static/media/fa-v4compatibility.woff2": "/Food/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
+    "index.html": "/Food/index.html",
+    "main.70848419.css.map": "/Food/static/css/main.70848419.css.map",
+    "main.bf5b66f8.js.map": "/Food/static/js/main.bf5b66f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70848419.css",
+    "static/js/main.bf5b66f8.js"
+  ]
+}
