@@ -134,13 +134,16 @@ li.active {
 .iconCart{
     /* width: 5%; */
     padding: 1rem;
-    display: flex;
-    justify-content: end;
-    background-color: rgb(250,250,250);
+    /* display: flex;
+    justify-content: start; */
+    position: absolute;
+    top: 0;
+    left: 0;
 
 }
 .fa-cart-shopping{
     font-size: 2rem;
+
 }
 
 @media (max-width: 991px) {

@@ -1,5 +1,5 @@
 {
-   "homepage": "https://esr22fahmy.github.io/Food",
+  "homepage": "https://esr22fahmy.github.io/Food",
   "name": "food-app",
   "version": "0.1.0",
   "private": true,
@@ -47,3 +47,4 @@
     "gh-pages": "^6.0.0"
   }
 }
+

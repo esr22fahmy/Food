@@ -17,9 +17,6 @@ const Order = () => {
   return (
     <div className="Order ">
       <div className="container-fluid">
-        <Link to="/cart" className="   iconCart">
-          <i className="fa-solid fa-cart-shopping text-dark"></i>
-        </Link>
         <div className="row">
           <div className="col-lg-5 p-0">
             <div className="container-fluid">
@@ -47,7 +44,10 @@ const Order = () => {
                     </p>
                   </div>
                 </div>
-                <div className="catogries py-2 px-4 mt-5">
+                <div className="catogries py-2 px-4 mt-5  position-relative ">
+                  <Link to="/cart" className="  iconCartOrder  ">
+                    <i className="fa-solid fa-cart-shopping text-dark"></i>
+                  </Link>
                   <div className="search-container w-75 m-auto">
                     <input type="search" className="form-control" />
                     <i className="bi bi-search icon"></i>
@@ -60,17 +60,18 @@ const Order = () => {
                       <i className="bi bi-grid-fill icon"></i>
                     </span>
                   </div>
+
                   <h6>التصنيفات</h6>
                   <div className="row">
-                    <div className="col-lg-5 p-0">
+                    <div className="col-lg-8 p-0">
                       <div className="container-fluid">
                         <div className="right-section">
-                          <div className="catogries py-2 px-4 mt-5">
+                          <div className="catogries scrollProduct py-2 px-4 mt-5">
                             <div className="row">
                               {categories.map((category) => (
                                 <div className="col-6 p-1" key={category.id}>
                                   <div className="card text-bg-dark show">
-                                    <Link to={`/items/${category.id}`}>
+                                    <Link to="/items/1">
                                       <img
                                         src={`https://menu.testm.online/storage/${category.image}`}
                                         className="card-img"

@@ -91,6 +91,24 @@
         color: #fff;
  }
 
+ .iconCartOrder{
+    padding: 1rem;
+   
+    position: absolute;
+    top: -0.8rem;
+    left: 0;
+
+}
+.fa-cart-shopping{
+    font-size: 2rem;
+
+}
+
+.scrollProduct {
+    overflow-y: scroll;
+    max-height: 600px
+  }
+
 @media (max-width: 991px) {
     .image-container {
         display: block;

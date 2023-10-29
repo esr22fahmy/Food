@@ -4,6 +4,13 @@ body {
   padding: 0;
   box-sizing: border-box;
   direction: rtl;
+  background-color: rgb(250,250,250) !important ;
+
+}
+
+.backGroundBody{
+  background-color: rgb(250,250,250) !important ;
+
 }
 
 * {

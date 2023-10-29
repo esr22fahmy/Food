@@ -13,7 +13,7 @@ const SingleItem = () => {
 
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid bg-white">
         <Link  to="/cart"  className="   iconCart">
         <i className="fa-solid fa-cart-shopping text-dark"></i>
         </Link>
@@ -45,6 +45,9 @@ const SingleItem = () => {
                 </div>
               </div>
               <div className="item-container mt-5">
+              <Link to="/cart" className="  iconCartOrder  ">
+                    <i className="fa-solid fa-cart-shopping text-dark"></i>
+                  </Link>
                 <div className="search-container w-75 m-auto m">
                   <input type="search" className="form-control" />
                   <i className="bi bi-search icon"></i>
@@ -122,7 +125,7 @@ const SingleItem = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-7 p-0">
+        <div className="col-lg-7 p-0 backGroundBody ">
           <div className={`left-section ${openMenu && "open"}`}>
             <div className="left-section-content text-center">
               <button

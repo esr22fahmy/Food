@@ -5,7 +5,7 @@ const Items = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid ">
       <Link to="/cart" className="   iconCart">
         <i className="fa-solid fa-cart-shopping text-dark"></i>
       </Link>
@@ -36,7 +36,11 @@ const Items = () => {
                   </p>
                 </div>
               </div>
+
               <div className="catogries py-2 px-4 mt-5">
+              <Link to="/cart" className="  iconCartOrder  ">
+                    <i className="fa-solid fa-cart-shopping text-dark"></i>
+                  </Link>
                 <div className="search-container w-75 m-auto">
                   <input type="search" className="form-control" />
                   <i className="bi bi-search icon"></i>
