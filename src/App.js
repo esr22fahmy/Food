@@ -6,6 +6,7 @@ import Items from './pages/items/Items';
 import SingleItem from './pages/single-item/SingleItem';
 import { CartProvider } from './pages/CartContext/CartContext';
 import Cart from './pages/Cart/Cart';
+import CheckoutCom from "./pages/CheckoutCom/CheckoutCom"
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path="/items/1" exact element={<Items />} />
         <Route path="/item/1" element={<SingleItem />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkoutCom" element={<CheckoutCom />} />
+
 
       </Routes>
       </Router>
