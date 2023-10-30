@@ -40,5 +40,19 @@ a{
   color: #fff;
 }
 
+.backDark{
+  background-color: black !important;
+  height: 150vh !important;
+}
+
+.countCart{
+  background-color: #198754;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  border-radius: 50%;
+}
+
 /*************** End Global Style ***************/
 

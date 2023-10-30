@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./single-item.css"
-import { Link } from "react-router-dom";
-import { CartContext } from '../CartContext/CartContext';
+import "./single-item.css";
+import { Link, useParams } from "react-router-dom";
+import { CartContext } from "../CartContext/CartContext";
+import imgItem from "../../img/img3.jpeg";
 
 const SingleItem = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -10,16 +11,31 @@ const SingleItem = () => {
   const addToCart = (product, image) => {
     setCart([...cart, { product, image }]);
   };
+  const [categories, setCategories] = useState([]);
+  const [itemDetails, setItemDetails] = useState({});
+  const { id } = useParams();
 
+  useEffect(() => {
+    fetch("https://menu.testm.online/api/categories")
+      .then((response) => response.json())
+      .then((data) => setCategories(data))
+      .catch((error) => console.error("Error fetching data: ", error));
+  }, []);
+
+  useEffect(() => {
+    if (id && categories.length) {
+      const selectedProduct = categories
+        .flatMap((category) => category.products)
+        .find((product) => product.id === parseInt(id));
+      setItemDetails(selectedProduct);
+    }
+  }, [id, categories]);
 
   return (
-    <div className="container-fluid bg-white">
-        <Link  to="/cart"  className="   iconCart">
-        <i className="fa-solid fa-cart-shopping text-dark"></i>
-        </Link>
+    <div className="container-fluid bg-dark  ">
       <div className="row">
-        <div className="col-lg-5 p-0">
-          <div className="container-fluid">
+        <div className="col-lg-5 p-0 backDark">
+          <div className="container-fluid text-white">
             <div className={`right-section  ${openMenu && "open"}`}>
               <div className="image-container">
                 <img
@@ -34,7 +50,7 @@ const SingleItem = () => {
                     alt=""
                   />
                   <div className="rating-box d-flex justify-content-between align-items-center">
-                    <p className="rating-text px-2 rounded-5">تقييم</p>
+                    <p className="rating-text px-2 rounded-5 ">تقييم</p>
                     <div className="rating-val center-content d-inline-block m-auto rounded-4 my-4 ">
                       0.5<i class="bi bi-star-fill me-2"></i>
                     </div>
@@ -44,10 +60,11 @@ const SingleItem = () => {
                   </p>
                 </div>
               </div>
-              <div className="item-container mt-5">
-              <Link to="/cart" className="  iconCartOrder  ">
-                    <i className="fa-solid fa-cart-shopping text-dark"></i>
-                  </Link>
+              <div className="item-container mt-5 position-relative">
+              <Link to="/cart" className="  iconCartOrder   ">
+  <i className="fa-solid fa-cart-shopping text-white"></i>
+  <div className="countCart text-white text-center">{cart.length}</div>
+</Link>
                 <div className="search-container w-75 m-auto m">
                   <input type="search" className="form-control" />
                   <i className="bi bi-search icon"></i>
@@ -61,12 +78,18 @@ const SingleItem = () => {
                   </span>
                 </div>
                 <div className="item">
-                  <img
-                    src="/images/img3.jpeg"
-                    className="card-img rounded-3"
-                    alt="..."
-                  />
-                  <h4>
+                  {/* 
+                {itemDetails.image && (
+                    <img
+                      src={`https://menu.testm.online/storage/${itemDetails.image[0].path}`}
+                      className="card-img rounded-3"
+                      alt="..."
+                    />
+                  )}
+                  <h4>{itemDetails.name}</h4>
+                  <p>{itemDetails.description}</p> */}
+                  <img src={imgItem} className="card-img rounded-3" alt="..." />
+                  <h4 className=" mt-3">
                     بــــروســتــد ريــــزو ايــت اب ( عائــلــي ) دجاجة مقرمشة
                   </h4>
                   <p>
@@ -111,15 +134,14 @@ const SingleItem = () => {
                     <label>ملاحظة</label>
                     <textarea></textarea>
                   </div>
-                  <button
-  className="add-to-cart my-2 d-inline-block"
-  onClick={() => addToCart("اسم المنتج هنا")}
->
-  <Link to="/cart" className="">
-    اضافة الى سلة التسوق
-  </Link>
-</button>
-
+                  <div
+                    className=" my-2 d-inline-block"
+                    onClick={() => addToCart("اسم المنتج هنا")}
+                  >
+                    <Link to="/cart" class="btn btn-success">
+                      اضافة الى سلة التسوق
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

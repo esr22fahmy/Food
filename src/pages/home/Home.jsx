@@ -8,7 +8,7 @@ const Home = () => {
 
   console.log(openMenu);
   const { cart, setCart } = useContext(CartContext);
-
+  
   return (
     <div className="home   ">
       <div className="container-fluid">
@@ -28,7 +28,7 @@ const Home = () => {
                 >
                   <i className="bi bi-grid-fill icon"></i>
                 </button>
-                <Link to="/cart" className="  iconCart">
+                <Link to="/cart" className=" iconHome  ">
                   <i className="fa-solid fa-cart-shopping  text-dark"></i>
                 </Link>
 

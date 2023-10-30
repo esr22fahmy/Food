@@ -1,6 +1,7 @@
 .inp{
 
-    width: 100% !important;
+    /* width: 150% !important; */
+    width: 50rem;
     border-radius: 61px;
   padding: 1rem 1rem;
   }

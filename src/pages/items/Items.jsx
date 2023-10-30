@@ -4,11 +4,25 @@ import "./items.css";
 const Items = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
+  const [categories, setCategories] = useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+
+  useEffect(() => {
+    fetch("https://menu.testm.online/api/categories")
+      .then((response) => response.json())
+      .then((data) => {
+        setCategories(data);
+        if (data.length > 0) {
+          setSelectedCategoryId(data[0].id);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching categories:", error);
+      });
+  }, []);
+
   return (
     <div className="container-fluid ">
-      <Link to="/cart" className="   iconCart">
-        <i className="fa-solid fa-cart-shopping text-dark"></i>
-      </Link>
       <div className="row">
         <div className="col-lg-5 p-0">
           <div className="container-fluid">
@@ -37,11 +51,11 @@ const Items = () => {
                 </div>
               </div>
 
-              <div className="catogries py-2 px-4 mt-5">
-              <Link to="/cart" className="  iconCartOrder  ">
-                    <i className="fa-solid fa-cart-shopping text-dark"></i>
-                  </Link>
-                <div className="search-container w-75 m-auto">
+              <div className="catogries py-2 px-4 pt-5">
+                <Link to="/cart" className="  iconCartOrder  ">
+                  <i className="fa-solid fa-cart-shopping text-white mt-5"></i>
+                </Link>
+                <div className="search-container mt-5 w-50 m-auto">
                   <input type="search" className="form-control" />
                   <i className="bi bi-search icon"></i>
                   <span
@@ -53,40 +67,27 @@ const Items = () => {
                     <i class="bi bi-grid-fill icon"></i>
                   </span>
                 </div>
-                <h6>العناصر</h6>
-                <div className="row">
-                  <div className="col-6 p-1">
-                    <div className="card text-bg-dark">
-                      <Link to="/item/1">
-                        <img
-                          src="/images/img3.jpeg"
-                          className="card-img"
-                          alt="..."
-                        />
-                        <div className="card-img-overlay">
-                          <p className="card-text h-100 d-flex align-items-end text-white">
-                            اضغط هنا لمشاهدة بروستد ريزو ايت اب (عائلي)
-                          </p>
+                <h6 className=" my-5 text-white">العناصر</h6>
+                <div className="scrollProduct">
+                  <div className="row">
+                    {categories.map((category) => (
+                      <div key={category.id} className="category-item col-md-6">
+                        <div className="card  text-bg-dark">
+                          <Link to="/item/1">
+                            <img
+                              src={`https://menu.testm.online/storage/${category.image}`}
+                              className="card-img"
+                              alt="..."
+                            />
+                            <div className="card-img-overlay">
+                              <p className="card-text h-100 d-flex align-items-end text-white">
+                                {category.name}
+                              </p>
+                            </div>
+                          </Link>
                         </div>
-                      </Link>
-                    </div>
-                  </div>
-                  {/*  */}
-                  <div className="col-6 p-1">
-                    <div className="card text-bg-dark">
-                      <Link to="/item/1">
-                        <img
-                          src="/images/img3.jpeg"
-                          className="card-img"
-                          alt="..."
-                        />
-                        <div className="card-img-overlay">
-                          <p className="card-text h-100 d-flex align-items-end text-white">
-                            اضغط هنا لمشاهدة بروستد ريزو ايت اب (عائلي)
-                          </p>
-                        </div>
-                      </Link>
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

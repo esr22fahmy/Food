@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import Joi from "joi";
 import "./CheckoutCom.css";
+
 
 const schema = Joi.object({
     name: Joi.string().required(),
@@ -33,9 +34,13 @@ export default function CheckoutCom() {
     return newErrors;
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = useCallback((e) => {
+    setFormData((prevFormData) => ({
+        ...prevFormData,
+        [e.target.name]: e.target.value,
+    }));
+}, []);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

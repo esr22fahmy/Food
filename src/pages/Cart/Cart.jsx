@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const { cart } = useContext(CartContext);
   const handleCheckout = () => {
-    console.log("تمت عملية الشراء بنجاح!");
+    console.log("done!");
   };
 
   return (<>
   
   <div className=" position-relative  vh-100">
-      <h2>عربة التسوق</h2>
+      <h2 className=" p-3">عربة التسوق</h2>
       <div className=" container d-flex justify-content-center align-item-center ">
         <div className=" row">
           {cart.map((item, index) => (

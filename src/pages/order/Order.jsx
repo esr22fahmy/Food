@@ -1,10 +1,16 @@
 import axios from "axios";
 import "./order.css";
-import React, { useEffect, useState } from "react";
+import { CartContext } from "../CartContext/CartContext";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const Order = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [categories, setCategories] = useState([]);
+  const { cart, setCart } = useContext(CartContext);
+
+  const addToCart = (product, image) => {
+    setCart([...cart, { product, image }]);
+  };
 
   useEffect(() => {
     fetch("https://menu.testm.online/api/categories")
@@ -13,7 +19,7 @@ const Order = () => {
       .catch((error) => console.error("Error fetching data: ", error));
   }, []);
   console.log(categories);
-
+  
   return (
     <div className="Order ">
       <div className="container-fluid">
@@ -44,11 +50,15 @@ const Order = () => {
                     </p>
                   </div>
                 </div>
-                <div className="catogries py-2 px-4 mt-5  position-relative ">
-                  <Link to="/cart" className="  iconCartOrder  ">
-                    <i className="fa-solid fa-cart-shopping text-dark"></i>
+                <div className="catogries py-2 px-4 pt-5  position-relative ">
+                  <Link to="/cart" className="  iconCartOrder mt-5 ">
+                    <i className="fa-solid fa-cart-shopping text-white "></i>
                   </Link>
-                  <div className="search-container w-75 m-auto">
+                  <Link to="/cart" className="  iconCartOrder  mt-5 ">
+  <i className="fa-solid fa-cart-shopping text-white"></i>
+  <div className="countCart text-white text-center">{cart.length}</div>
+</Link>
+                  <div className="search-container mt-5 w-50 m-auto">
                     <input type="search" className="form-control" />
                     <i className="bi bi-search icon"></i>
                     <span
@@ -61,9 +71,9 @@ const Order = () => {
                     </span>
                   </div>
 
-                  <h6>التصنيفات</h6>
+                  <h6 className=" text-white  pt-5">التصنيفات</h6>
                   <div className="row">
-                    <div className="col-lg-8 p-0">
+                    <div className="col-lg-12 p-0">
                       <div className="container-fluid">
                         <div className="right-section">
                           <div className="catogries scrollProduct py-2 px-4 mt-5">

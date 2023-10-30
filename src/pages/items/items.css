@@ -81,6 +81,14 @@
     display: none;
 }
 
+.iconCartItem{
+    padding: 1rem;
+   
+    position: absolute;
+    top: -0.8rem;
+    left: 0;
+}
+
 @media (max-width: 991px) {
     .image-container {
         display: block;
