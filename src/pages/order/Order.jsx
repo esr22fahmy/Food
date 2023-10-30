@@ -19,7 +19,7 @@ const Order = () => {
       .catch((error) => console.error("Error fetching data: ", error));
   }, []);
   console.log(categories);
-  
+
   return (
     <div className="Order ">
       <div className="container-fluid">
@@ -55,9 +55,11 @@ const Order = () => {
                     <i className="fa-solid fa-cart-shopping text-white "></i>
                   </Link>
                   <Link to="/cart" className="  iconCartOrder  mt-5 ">
-  <i className="fa-solid fa-cart-shopping text-white"></i>
-  <div className="countCart text-white text-center">{cart.length}</div>
-</Link>
+                    <i className="fa-solid fa-cart-shopping text-white"></i>
+                    <div className="countCart text-white text-center">
+                      {cart.length}
+                    </div>
+                  </Link>
                   <div className="search-container mt-5 w-50 m-auto">
                     <input type="search" className="form-control" />
                     <i className="bi bi-search icon"></i>

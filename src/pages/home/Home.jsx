@@ -8,7 +8,10 @@ const Home = () => {
 
   console.log(openMenu);
   const { cart, setCart } = useContext(CartContext);
-  
+
+  const addToCart = (product, image) => {
+    setCart([...cart, { product, image }]);
+  };  
   return (
     <div className="home   ">
       <div className="container-fluid">
@@ -28,10 +31,10 @@ const Home = () => {
                 >
                   <i className="bi bi-grid-fill icon"></i>
                 </button>
-                <Link to="/cart" className=" iconHome  ">
-                  <i className="fa-solid fa-cart-shopping  text-dark"></i>
-                </Link>
-
+                <Link to="/cart" className="  iconCartOrder  mt-5 ">
+  <i className="fa-solid fa-cart-shopping text-white"></i>
+  <div className="countCart text-white text-center">{cart.length}</div>
+</Link>
                 <div className=" text-center ">
                   <div className="">
                     <img

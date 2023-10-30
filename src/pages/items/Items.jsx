@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./items.css";
+import { CartContext } from "../CartContext/CartContext";
+
 const Items = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const { cart, setCart } = useContext(CartContext);
+
+  const addToCart = (product, image) => {
+    setCart([...cart, { product, image }]);
+  };
+
 
   useEffect(() => {
     fetch("https://menu.testm.online/api/categories")
@@ -52,9 +60,10 @@ const Items = () => {
               </div>
 
               <div className="catogries py-2 px-4 pt-5">
-                <Link to="/cart" className="  iconCartOrder  ">
-                  <i className="fa-solid fa-cart-shopping text-white mt-5"></i>
-                </Link>
+              <Link to="/cart" className="  iconCartOrder  mt-5 ">
+  <i className="fa-solid fa-cart-shopping text-white"></i>
+  <div className="countCart text-white text-center">{cart.length}</div>
+</Link>
                 <div className="search-container mt-5 w-50 m-auto">
                   <input type="search" className="form-control" />
                   <i className="bi bi-search icon"></i>
